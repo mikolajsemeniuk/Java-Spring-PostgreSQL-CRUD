@@ -30,4 +30,5 @@ CREATE DATABASE app; # don't forget to put `;`
 ### Commands
 ```sh
 mvn install # reload pom.xml
+./mvnw spring-boot:run # run
 ```
