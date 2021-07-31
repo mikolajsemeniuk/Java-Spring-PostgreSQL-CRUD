@@ -2,6 +2,7 @@ package com.example.app.Entities;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,9 +28,12 @@ public class CustomerEntity {
     )
     private Long id;
     @Getter @Setter
+    @Column(nullable = false, updatable = true)
     private String name;
+    @Column(nullable = false, updatable = true)
     @Getter @Setter
     private String surname;
+    @Column(nullable = false, updatable = false)
     @Getter @Setter
     private LocalDateTime created = LocalDateTime.now();
 
