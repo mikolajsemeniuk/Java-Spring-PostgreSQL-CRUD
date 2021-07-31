@@ -41,6 +41,20 @@
 			<version>42.2.23</version>
 		</dependency>
 
+		<!-- swagger 3 -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>1.5.2</version>
+		</dependency>
+
+		<!-- lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.20</version>
+		  </dependency>
+
 	</dependencies>
 
 	<build>

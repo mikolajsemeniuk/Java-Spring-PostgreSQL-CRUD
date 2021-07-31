@@ -1,3 +1,5 @@
+# Java-Spring-PostgreSQL-CRUD
+
 ### Create project
 go to [link](https://start.spring.io/)
 * Group
@@ -8,4 +10,15 @@ go to [link](https://start.spring.io/)
 ```sh
 idea . # or
 code-insiders .
-```# Java-Spring-PostgreSQL-CRUD
+http://localhost:8080/v3/api-docs/ # endpoint of openapi or set custom in .properties
+springdoc.api-docs.path=/api-docs
+
+docker container ls # and copy the container id
+docker exec -it {container_id} /bin/bash
+
+psql -U root # connect to postgres
+\l # list all tables
+DROP DATABASE IF EXISTS app;  # don't forget to put `;`
+CREATE DATABASE app; # don't forget to put `;`
+\q # to exit
+```

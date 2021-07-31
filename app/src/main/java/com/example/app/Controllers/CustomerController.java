@@ -1,39 +1,47 @@
 package com.example.app.Controllers;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.app.DTO.CustomerInput;
+import com.example.app.DTO.CustomerPayload;
+import com.example.app.Services.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import javax.validation.Valid;
+import java.util.List;
 
 @RestController
-@RequestMapping("/customer")
+@RequestMapping(path = "api/customer")
 public class CustomerController {
-    
+    private final CustomerService service;
+
+    @Autowired
+    public CustomerController(CustomerService service) {
+        this.service = service;
+    }
+
     @GetMapping
-	public String getCustomers() {
-		return "Greetings from Spring Boot!";
-	}
-    
-    @GetMapping("/{id}")
-    public String getCustomer(@PathVariable("id") Long id) {
-        return "get method " + id;
+    public ResponseEntity<List<CustomerPayload>> getCustomers() {
+        return new ResponseEntity<List<CustomerPayload>>(service.getCustomers(), HttpStatus.OK);
+    }
+
+    @GetMapping(path = "{id}")
+    public ResponseEntity<CustomerPayload> getCustomer(@PathVariable("id") Long id) {
+        return new ResponseEntity<CustomerPayload>(service.getCustomer(id), HttpStatus.OK);
     }
 
     @PostMapping
-    public String addCustomer() {
-        return "post method ";
+    public ResponseEntity<CustomerPayload> addCustomer(@Valid @RequestBody CustomerInput input) {
+        return new ResponseEntity<CustomerPayload>(service.addCustomer(input), HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
-    public String updateCustomer() {
-        return "put method ";
+    @PutMapping(path = "{id}")
+    public ResponseEntity<CustomerPayload> updateCustomer(@PathVariable("id") Long id, @Valid @RequestBody CustomerInput input) {
+        return new ResponseEntity<CustomerPayload>(service.updateCustomer(id, input), HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
-    public String removeCustomer() {
-        return "delete method";
+    @DeleteMapping(path = "{id}")
+    public ResponseEntity<CustomerPayload> removeCustomer(@PathVariable("id") Long id) {
+        return new ResponseEntity<CustomerPayload>(service.removeCustomer(id), HttpStatus.OK);
     }
 }
