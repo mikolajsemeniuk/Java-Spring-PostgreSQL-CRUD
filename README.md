@@ -13,10 +13,14 @@ code-insiders .
 http://localhost:8080/v3/api-docs/ # endpoint of openapi or set custom in .properties
 springdoc.api-docs.path=/api-docs
 
+```
+
+### Init database in docker container
+```sh
 docker container ls # and copy the container id
 docker exec -it {container_id} /bin/bash
 
-psql -U root # connect to postgres
+psql -u root # connect to postgres
 \l # list all tables
 DROP DATABASE IF EXISTS app;  # don't forget to put `;`
 CREATE DATABASE app; # don't forget to put `;`
