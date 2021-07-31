@@ -26,3 +26,8 @@ DROP DATABASE IF EXISTS app;  # don't forget to put `;`
 CREATE DATABASE app; # don't forget to put `;`
 \q # to exit
 ```
+
+### Commands
+```sh
+mvn install # reload pom.xml
+```
