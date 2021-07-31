@@ -1,8 +1,8 @@
-package com.example.app.Controllers;
+package com.example.app.controllers;
 
 import com.example.app.DTO.CustomerInput;
 import com.example.app.DTO.CustomerPayload;
-import com.example.app.Services.CustomerService;
+import com.example.app.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

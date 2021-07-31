@@ -1,7 +1,8 @@
-package com.example.app.Configuration;
+package com.example.app.configuration;
 
-import com.example.app.Entities.CustomerEntity;
-import com.example.app.Repositories.CustomerRepository;
+import com.example.app.repositories.CustomerRepository;
+import com.example.app.entities.CustomerEntity;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

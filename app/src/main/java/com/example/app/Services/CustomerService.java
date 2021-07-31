@@ -1,12 +1,13 @@
-package com.example.app.Services;
+package com.example.app.services;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.transaction.Transactional;
 import com.example.app.DTO.CustomerInput;
 import com.example.app.DTO.CustomerPayload;
-import com.example.app.Entities.CustomerEntity;
-import com.example.app.Repositories.CustomerRepository;
+import com.example.app.entities.CustomerEntity;
+import com.example.app.repositories.CustomerRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
